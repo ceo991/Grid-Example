@@ -11,7 +11,7 @@
           style="width: 80px"
           :id="convertToIndex(ic, ir)"
         >
-          <button style="height: 80px; width: 80px">
+          <button style="height: 80px; width: 80px" :id="convertToIndex(ic, ir)">
             {{ convertToIndex(ic, ir) }}
           </button>
         </td>
