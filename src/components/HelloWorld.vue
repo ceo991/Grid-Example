@@ -27,8 +27,8 @@ export default {
     return {
       rows: [],
       columns: [],
-      trSize: 3,
-      tdSize: 3,
+      trSize: 4,
+      tdSize: 4,
       ir: 0,
       ic: 0,
       tableGenerated: false,
@@ -49,11 +49,7 @@ export default {
       }
     },
     convertToIndex(num1, num2) {
-      if (num2 == 1) {
-        num1 += 0;
-      } else if (num2 > 1) {
-        num1 += this.tdSize * (num2 - 1);
-      }
+      num1 += this.tdSize * (num2 - 1);
       return num1;
     },
   },
