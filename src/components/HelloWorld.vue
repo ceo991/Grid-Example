@@ -16,14 +16,10 @@ export default {
   data() {
     return {
       rows:[],
-      nums:[],
-      nArr:[],
       columns:[],
-      //tIndex: 3,
       trIndex: 6,
       tdIndex: 6,
       ir:0,
-      num:0,
       ic:0
     }
   },
