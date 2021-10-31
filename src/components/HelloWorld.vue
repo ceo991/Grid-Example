@@ -1,6 +1,6 @@
 <template>
   <div class="hello">
-    <!--<button style="height:80px; width:80px;" @click="addTableElement()">GENERATE TABLE</button>-->
+    <button style="height:80px; width:80px;" @click="addTableElement()">GENERATE TABLE</button>
     <table>
       <tr v-for="ir in rows" :key="ir" style="height:80px" >
         <td v-for="ic in columns" :key="ic" style="width:80px" :id="convertToIndex(ic,ir)"><button style="height:80px; width:80px;">{{convertToIndex(ic,ir)}}</button></td>
@@ -17,20 +17,27 @@ export default {
     return {
       rows:[],
       columns:[],
-      trIndex: 6,
-      tdIndex: 6,
+      trIndex: 3,
+      tdIndex: 3,
       ir:0,
-      ic:0
+      ic:0,
+      tableGenerated: false
     }
   },
   methods: {
     addTableElement(){
+
+      if(!this.tableGenerated){
   
-      for(this.ir = 1; this.ir <= this.trIndex; this.ir++) {
-        this.rows.push(this.ir);
-      }
-      for(this.ic = 1; this.ic <= this.tdIndex; this.ic++) {
-        this.columns.push(this.ic);
+        for(this.ir = 1; this.ir <= this.trIndex; this.ir++) {
+          this.rows.push(this.ir);
+        }
+        for(this.ic = 1; this.ic <= this.tdIndex; this.ic++) {
+          this.columns.push(this.ic);
+        }
+        this.tableGenerated = true;
+      }else{
+        alert("Table already generated !");
       }
     },
     convertToIndex(num1, num2){
@@ -43,9 +50,9 @@ export default {
       return num1;
     }
   },
-  mounted () {
+  /*mounted () {
     this.addTableElement();
-  }
+  }*/
 };
 </script>
 
