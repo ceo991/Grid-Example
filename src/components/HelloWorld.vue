@@ -1,6 +1,6 @@
 <template>
   <div class="hello">
-    <button style="height:80px; width:80px;" @click="addTableElement()">GENERATE TABLE</button>
+    <button style="height:80px; width:80px;" @click="generateGrid()">GENERATE GRİD</button>
     <table>
       <tr v-for="ir in rows" :key="ir" style="height:80px" >
         <td v-for="ic in columns" :key="ic" style="width:80px" :id="convertToIndex(ic,ir)"><button style="height:80px; width:80px;">{{convertToIndex(ic,ir)}}</button></td>
@@ -17,27 +17,27 @@ export default {
     return {
       rows:[],
       columns:[],
-      trIndex: 3,
-      tdIndex: 3,
+      trSize: 3,
+      tdSize: 3,
       ir:0,
       ic:0,
       tableGenerated: false
     }
   },
   methods: {
-    addTableElement(){
+    generateGrid(){
 
       if(!this.tableGenerated){
   
-        for(this.ir = 1; this.ir <= this.trIndex; this.ir++) {
+        for(this.ir = 1; this.ir <= this.trSize; this.ir++) {
           this.rows.push(this.ir);
         }
-        for(this.ic = 1; this.ic <= this.tdIndex; this.ic++) {
+        for(this.ic = 1; this.ic <= this.tdSize; this.ic++) {
           this.columns.push(this.ic);
         }
         this.tableGenerated = true;
       }else{
-        alert("Table already generated !");
+        alert("Grid already generated !");
       }
     },
     convertToIndex(num1, num2){
@@ -45,7 +45,7 @@ export default {
         if(num2 == 1){
           num1 += 0;
         } else if(num2 > 1){
-          num1 += this.tdIndex*(num2-1);
+          num1 += this.tdSize*(num2-1);
         }
       return num1;
     }
