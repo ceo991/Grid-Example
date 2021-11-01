@@ -3,7 +3,7 @@
     <button style="height: 80px; width: 80px" @click="generateGrid()">
       GENERATE GRİD
     </button>
-    <table  cellpadding="0" cellspacing="0">
+    <table cellpadding="0" cellspacing="0">
       <tr v-for="ir in rows" :key="ir">
         <td
           v-for="ic in columns"
@@ -11,11 +11,14 @@
           style="height: 80px; width: 80px"
           :id="convertToIndex(ic, ir)"
         >
-        <div style="width: 100%; height: 100%;">
-          <button style="width: 100%; height: 100%;" :id="convertToIndex(ic, ir)">
-            {{ convertToIndex(ic, ir) }}
-          </button>
-        </div>
+          <div style="width: 100%; height: 100%">
+            <button
+              style="width: 100%; height: 100%"
+              :id="convertToIndex(ic, ir)"
+            >
+              {{ convertToIndex(ic, ir) }}
+            </button>
+          </div>
         </td>
       </tr>
     </table>
